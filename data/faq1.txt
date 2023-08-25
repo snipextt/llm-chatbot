@@ -1,0 +1,879 @@
+Help and Support Content for Mobile
+Mobile
+How to Edit/Delete an Invoice
+Scroll down in the Dashboard to find all your invoices.
+Select the invoice you wish to edit.
+Tap on the edit button at the top of the screen.
+Edit the invoice as required and Generate Bill.
+===
+How to add items in Bulk?
+Open the Items Screens through the bottom navigation bar.
+Click on the bulk upload icon next to the “Create new item” button.
+Click on “Excel(.xlsx) file” option.
+Upload an Excel file containing the Item name, Sales price, purchase price and any other details in any format.
+The items will be added to your account upon uploading the excel file.
+===
+How to add Multiple Bank Accounts?
+To Add a Bank Account:
+Click on the Total Balance button in the Dashboard
+Click on “+ Add New Bank”
+Add the Account Display Name, Opening Balance and Date
+To add additional bank account details, click on the Add bank account details toggle and fill in the details as required
+Click on Save and the Bank Account will be added.
+===
+Schedule an Online Demo
+To schedule an Online Demo with the myBillBook team, click here and fill 
+the form. Our team will get in touch with you soon!
+===
+How to create/change invoice themes?
+To change invoice theme and color, 
+Open the More Screen through the bottom navigation bar
+Go to Invoice Settings
+Go to Theme & Color
+Choose the theme and color you wish to apply and click on Save
+You can now create and customize your own invoice theme on the 
+web/desktop app!
+===
+Suggest new features/improvements
+Click here to interact with the myBillBook community and Post a Suggestion 
+that you would like in our services!
+===
+How to create a Sales Invoice?
+To create a Sales Invoice:
+Click on the “+ Bill / Invoice” button on the Dashboard screen
+Choose a party from existing parties who you intend to bill. To create a New Party, click on “+ Mobile Number”, add all the details required, and Save Party.
+Add the items to the invoice by clicking on “Add Items”. To add a new item, click on the “+ Create New Item” button, add all the item details, and click Save
+Add the item quantity as required
+Add any charges or discounts if applicable by clicking on “Add more details”
+Click on Generate Bill.
+===
+How to create a Purchase Invoice?
+To create a Purchase Invoice:
+Click the “+” button in the Dashboard screen
+Click on Purchase icon under Purchase Transactions
+Choose a party from existing parties who you intend to bill. To create a New Party, click on “+ Mobile Number”, add all the details required, and Save Party.
+ Add the items to the invoice by clicking on “Add Items”. To add a new item, click on the “+ Create New Item” button, add all the item details, and click Save
+Add the item quantity as required
+Add any charges or discounts if applicable by clicking on “Add more details”
+Click on Save.
+===
+How to create/change Invoice themes?
+To change invoice theme and color:
+Open the More Screen through the bottom navigation bar
+Go to Invoice Settings
+Go to Theme & Color
+Choose the theme and color you wish to apply and click on Save.
+===
+How to edit/delete an invoice?
+Scroll down in the Dashboard to find all your invoices
+Select the invoice you wish to edit
+Tap on the edit button at the top of the screen
+Edit the invoice as required and Generate Bill
+===
+How to add a discount to a bill?
+To add a discount to the bill: 
+Click on the “+ Discount” button in the invoice creation screen
+If you want to give a discount as a percent of the item subtotal, enter the discount % value in the % field
+If you want to give a discount for a fixed amount, enter the discount amount value in the amount field
+===
+How to add a discount to an item?
+To add a discount to any single item in an invoice, take the following steps:
+Add all the items required to the invoice using the “+ Add items” button
+Click on Add more details on the bottom left to enter the Invoice creation Screen
+Click on the “EDIT” button of the item for which you would like to give a discount
+In the Discount field, choose either Percentage or Amount and enter the discount value
+Click Done and Generate Bill to display the item-wise discount on the invoice!
+===
+How to change item prices and units in the invoice?
+To change the price of items in the invoice, 
+On adding the items to the invoice, click the “EDIT” button for the following item
+Enter the new price, quantity, and discount as required
+Click on Done.
+===
+How to add delivery and other additional charges in the invoice?
+To add any additional charges to the invoice:
+On adding all items required, click on Add more details on the bottom left to enter the Invoice creation Screen
+Click on the “+ Additional Charges” button
+Add the charge name, charge value and GST, if any. Charges like delivery charges, labour charges.
+===
+How to add a field to an invoice?
+To add additional fields to the invoice:
+Click on “+ Bill / Invoice” in the Dashboard Screen
+Click on the Invoice Settings button on the top right of the Invoice Creation Screen
+Go to Add Fields to Invoice
+Add the respective fields to your invoice by either choosing the field name from the options given or create new fields by clicking on “+ Add Custom Field” at the bottom right of the screen
+Save the changes made.
+===
+How to add a column to an invoice?
+To add additional columns to the invoice:
+Click on “+ Bill / Invoice” in the Dashboard Screen
+Click on the Invoice Settings button on the top right of the Invoice Creation Screen
+Go to Add/Remove Columns
+Add the respective fields to your invoice by either choosing the field name from the options given or create new fields by clicking on “+ Add Custom Field” at the bottom right of the screen
+Save the changes made.
+===
+How to add a free item?
+To add a free item to the invoice:
+Go to Invoice Settings on the top right of the Invoice Creation Screen
+Go to Additional Settings
+Enable Free Quantity by tapping on the toggle
+Go back to the invoice creation page and add items as desired
+On clicking on Save in the Add item popup, a “+ FREE” button shall be visible above the quantity
+Click on the “+ FREE” button and choose the quantity of the item which you want to give for free and click save
+The free items will be added to the invoice with ₹0 price.
+===
+How to print a bill?
+To print a bill on myBillBook:
+Create the invoice as desired and click on “Generate Bill”
+Click on the Print button on the bottom left of the invoice preview screen
+Choose the printer type and page size accordingly and print!
+===
+How to print using a thermal printer?
+To print using a thermal printer:
+Create the invoice as desired and click on “Generate Bill”
+Click on the Print button on the bottom left of the invoice preview screen
+Choose the printer type as Bluetooth/USB Thermal printer and page size accordingly and print!
+===
+How to print a duplicate or triplicate invoice?
+To print a duplicate or triplicate invoice:
+Create the invoice as desired and click on “Generate Bill”
+Click on the “More Options” icon on the top-right
+Choose Duplicate or Triplicate and Print!
+===
+How to make a GST bill?
+To create a GST bill on myBillBook:
+Go to the More Screen by selecting “More” on the bottom right
+Click on Business & GST Settings
+Enter your business’s GST Number through the given option
+Create a GST item by going to the items screen and clicking on “+ Create New item”
+Fill in the details and click on the “+ Add GST & Tax Details”
+Enter the HSN Code or choose the GST% manually and save the item
+Create a party by going to the items screen and clicking on “+ Create Party”
+Fill in the details and GST Number in the given field
+Create an invoice with the above-created item and party!
+===
+How to add a due date to an invoice?
+By default, all invoices created on myBillBook have a due date of 7 days.
+To change this, click on Edit on the top-right of the Invoice Creation Screen and change/remove the due date from the invoice accordingly.
+===
+How to view/edit invoice number prefix?
+By default, all invoices created on myBillBook have an invoice number 1 
+more than the last created invoice
+To change the invoice number, click on Edit on the top-right of the Invoice Creation Screen and change/remove the due date from the invoice accordingly.
+To change this, click on Edit on the top-right of the Invoice Creation Screen 
+and change the invoice number accordingly. 
+To add a prefix, click on “+ Add Prefix” below the Invoice Number field
+===
+How to change the invoice date?
+By default, all invoices created on myBillBook have invoice date set to the current date.
+To change this, click on Edit on the top-right of the Invoice Creation Screen and change the Invoice Date accordingly.
+===
+What is round-off?
+To enable round-off, click on “+ Round Off” in the Invoice Creation screen
+Round-off can be used in case the invoice total amount is in decimal points and you wish to display the total amount in rupees without the paisa.
+To use round-off:
+On adding items to the invoice, click on “+ Round Off”
+Choose “-” or “+” depending on whether you would like to add or subtract (minus) the change amount
+Enter the value you would like to add or deduct to round-off total amount
+===
+How to add/show an item note in the invoice?
+To enable item note/description:
+Go to Invoice Settings on the top-right of the Invoice Creation Screen
+Go to Additional Settings
+Toggle “Show Item Description”
+
+To add a note/description to an item:
+Add the required item to the invoice
+Click on “EDIT” for the item under which you would like to display the note
+Go to Other Details and enter the Item Description in the given field
+Generate a bill with an item note displayed below each item.
+===
+How to add Terms & Conditions?
+To add Terms & Conditions to your invoice:
+Go to Invoice Settings on the top-right of the Invoice Creation Screen
+Go to Terms and Conditions
+Add the Terms and Conditions as required and they will be displayed on the bottom left of the invoice.
+===
+How to add a company logo to an invoice?
+To upload the company logo,
+Go to the More Screen through the bottom navigation bar
+Click on the Business & GST Settings button
+Click on the “+ Logo” button on the top left and upload your company logo
+Your invoices would be created with a logo!
+===
+How to change the phone number or email on the Invoice?
+To change/add a phone number or email on the invoice:
+Go to Invoice Settings on the top-right of the Invoice Creation Screen
+To change the phone number, go to the “Phone Number on Invoice” option and modify it as required
+To change email, go to the “Email on Invoice” option and modify as required
+===
+How to change the Bank Account details in the invoice?
+To change the Bank Account details on the invoice:
+Go to Invoice Settings on the top-right of the Invoice Creation Screen
+Go to “Show Bank Account on Invoice”
+Select the Bank Account whose details you want to be displayed on the invoice
+If the bank account is not added to myBillBook, add it by clicking on “+ Add New Bank”
+===
+How to generate e-way Bills & e-invoices?
+To generate and e-way Bill or e-invoice:
+Go to Invoice Settings on the top-right of the Invoice Creation Screen
+Go to “Generate e-Way Bills & e-Invoices”
+Enable the toggle as required and generate Invoice!
+===
+How to show the Party balance in the invoice?
+To show the Party Balance on the invoice:
+Go to Invoice Settings on the top-right of the Invoice Creation Screen
+Go to Additional Settings
+Enable the “Show Party Balance” toggle
+===
+How to share invoices in PDF/Image format?
+To choose to share the invoice in PDF or Image format:
+Go to Invoice Settings on the top-right of the Invoice Creation Screen
+Go to Sharing Settings
+Choose PDF or Invoice
+===
+How to add different billing & shipping addresses?
+To add a default Billing Address:
+Go to the More Screen through the bottom navigation bar
+Go to Business Address
+To auto-fill the address from your current location, click on Allow Location Access
+To enter the address manually, click on Cancel and fill all details as required
+
+To add Shipping Address:
+Tap on “Parties” in the bottom navigation screen
+Tap on “Create Party” and tap on Billing Address and add the Billing Address and Save
+On saving, there is a Shipping Address field which can be edited as required. This would be visible on the invoice
+===
+How to search for an invoice?
+To search for an invoice:
+Scroll down on the dashboard to view the list of all invoices
+Select the invoice type from the category list provided below the search bar (optional)
+Find the invoice by entering either the Party Name or the Invoice Number in the Search bar
+===
+How to add/remove the signature from the invoice?
+To add a signature or empty signature box to the invoice:
+Go to Invoice Settings on the top-right of the Invoice Creation Screen
+Tap on Signature
+You can choose to create or upload signature from the given options
+You can also add an empty signature box to sign manually after printing the invoice
+===
+How to mention the advance amount received on an invoice?
+To change the amount received in the invoice:
+1.  Add the Party Name and Items to the invoice
+2.  Tap on “+Amount Received” and enter the advance amount
+3.  The balance amount would be adjusted accordingly
+Note: This field would not be visible in Cash Sale bills
+===
+How to download Desktop/Web app?
+To use the Web app or to download the desktop app, visit https://mybillbook.in/
+Click on Login and select “Login by scanning QR Code”
+On your mobile, tap the Desktop Icon on the top-right of the dashboard
+Tap on Connect and scan the QR code in the desktop to use the web app
+===
+How to add Multiple Bank Accounts?
+You can now Add, edit, and deactivate details of Multiple Bank Accounts on myBillBook!
+To Add a Bank Account:
+Click on the Total Balance button in the Dashboard
+Click on “+ Add New Bank”
+Add the Account Display Name, Opening Balance and Date
+To add additional bank account details, click on the Add bank account details toggle and fill in the details as required
+Click on Save and the Bank Account will be added
+===
+How to edit bank account details?
+To edit the details of a Bank Account:
+Click on the Total Balance button in the Dashboard
+Choose the Bank Account, the details of which have to be edited
+Click on the Account Details button
+Click on More Options at the top-right of the screen
+Click on Update details
+Edit the details as required and Save
+===
+Schedule an Online Demo
+To schedule an Online Demo with the myBillBook team, click here and fill the form. Our team will get in touch with you soon!
+===
+Schedule an Offline Demo
+To schedule an Offline Demo with the myBillBook team, click here and fill the 
+form.
+Alternatively, you can also schedule an Online demo with us. Click here and 
+fill the form for the online demo and our team will get in touch with you soon!
+===
+How to close the Financial year?
+Closing the Financial year helps you start your accounting data freshly from the new year by resetting the invoice numbers and start invoicing with new numbers in the new financial year. All the existing data will not be changed and stored as it is.
+To close the Financial year on myBillBook:
+Go to the More screen through the bottom navigation bar
+Tap on the “Business & GST Settings” button at the top of the screen
+Go to Close Financial Year
+Tick the box at the bottom of the screen and Continue
+Modify the preview numbers for all the invoice types as required and continue
+===
+How to send Greetings?
+To send greetings on festivals or for sending posts regarding new products 
+or items to your customers:
+Go to the Grow screen through the bottom navigation screen
+Tap on Greetings under the Marketing & Sales header
+Choose the template that you would like to send to parties
+Add any text to the image by entering text in the “Additional Text” field
+To change the company logo on the image, tap on Upload
+To change the Business Name on the image, edit the Business Name field
+To share the greeting, tap on the Share button on the top right of the screen
+You can use greetings to send connect with your customers and parties on 
+any festival like Diwali, Holi, New Year, Sankranti, Eid, etc and you can also use greetings to send any updates regarding new product offers or for advertisement of your business
+===
+How to access Sales Summary report?
+To generate sales summary report:
+Tap on Reports section in the dashboard
+Select Sales Summary - Staff Wise option
+Apply filters as required and tap the Whatsapp Icon on the top right of the screen to share report
+===
+How to use Staff Attendance & Payroll Management?
+You can now record Staff Attendance and Manage Payrolls on myBillBook!
+To add staff:
+Go to Grow tab through the bottom navigation bar
+Tap on Staff Attendance & Payroll
+Tap on the “+ Add Staff” button and enter the staff details
+If the staff owes you any payment, select “To collect” in the opening balance section and enter the amount
+If you owe the staff any payment, select “To pay” in the opening balance section and enter the amount
+
+To Mark attendance:
+In the Attendance Screen, tap on the P button if the staff is present and on the A button if the staff is absent on a date
+To change the date, tap on the “CHANGE” button on the top right
+You can also mark half day, paid leave, and holidays/week-offs by clicking on the more options button of any staff member
+To mark overtime, mark present and go to more options. Tap on overtime and enter the overtime duration and overtime salary rate to calculate accordingly.
+
+To calculate the salary and make payment to staff:
+Go to the Payroll screen through the bottom navigation bar
+Choose the Staff and click on the “Make Payment” button at the bottom
+Select payment type, amount, payment mode, and date and save to make payment!
+To create a salary slip, please use the desktop/web app
+
+To delete/edit staff details:
+Tap on the staff name in the Attendance Screen
+To edit staff details, tap on the edit icon on the top right of the screen
+To delete staff, tap on the delete icon on the top right of the screen
+===
+How to add/delete business to your myBillBook account?
+To add a business to your myBillBook account:
+Go to the More screen through the bottom navigation bar
+Tap on the “Business & GST Settings” button at the top of the screen
+Scroll down and tap on the “+ Add New Business” button
+For more details on plan pricing and number of businesses in an account, 
+contact us at 7400417400
+
+To delete a business:
+Go to the More screen through the bottom navigation bar
+Tap on the “Business & GST Settings” button at the top of the screen
+Scroll down and click on Delete business tick the box provided to delete the business
+===
+How to add/change staff roles and details?
+To add a new user:
+Go to the More screen through the bottom navigation bar
+Go to Manage User
+Tap on the “+ Add New User” button
+Enter details and Save to create a user!
+
+To change staff role or details:
+Go to the More screen through the bottom navigation bar
+Go to Manage User
+Tap on the options button whose details you want to edit and tap on Edit
+Make the changes required and Save!
+You can add Partner, Salesman, Stock Manager, Delivery Boy, Accountant/CA as a user on myBillBook!
+===
+How to use Whatsapp Marketing?
+WhatsApp Marketing can be used to connect with your customers and notify 
+about any offers or new items for sale on festivals!
+To use WhatsApp Marketing:
+Open the Grow tab on the bottom navigation bar and go to Whatsapp Marketing under the Marketing & Sales header
+Choose a template that you would like to use from the different categories available
+Enter the details as required to be displayed in the WhatsApp image which is to be shared
+Click on Save & Continue and select the Parties that you would like to send the WhatsApp campaign to
+Tap on Next, enter the Campaign Name in the field provided and Send Campaign!
+Make sure you have the credits required to send the WhatsApp campaign. 1 credit is used to send 1 message to 1 party.
+===
+How to file GST on mobile? 
+To use GST Filing through myBillBook:
+Go to Grow tab through the bottom navigation bar
+Go to GST Filing to view GSTR-1 Report
+Download the GSTR1 report in JSON format by tapping on the icon in the top-right and upload it in the GST portal
+Tap on the email icon on the top right to email GSTR1 report in JSON format to your CA/Accountant
+===
+How to offer reward points to customers?
+You can now reward loyalty by giving points and discounts to your regular customers. This can be done by offering points for every 100 rupees of purchase made by the customer.
+To set up Reward Points:
+Go to Grow tab through the bottom navigation bar
+Go to Reward Points under the Marketing & Sales header
+Tap on Setup Reward points
+Set the reward rate by entering the points you would like to offer to customers on sale of goods worth ₹ 100. 1 reward point = ₹ 1 discount
+To turn reward points off, tap on the settings icon on the top right and toggle Reward Points off
+===
+How to set up an Online Store?
+myBillBook users can now create an Online Store by displaying their products to customers online through a website created exclusively for you! 
+To create an Online store:
+Go to Grow tab through the bottom navigation bar
+Click on Online Store under the Marketing & Sales header
+Tap on Create Online store now and enter all business details
+Share the link provided with your parties, through which they can place orders
+Navigate to the settings screen by tapping on the settings icon on the top-right to modify various features of your online store.
+Values for minimum order value, delivery charges, phone number, etc can be changed here. For more details on Online Store, watch the video provided
+===
+How to create Balance Sheets?
+To create a Balance Sheet on myBillBook:
+Tap on Reports in the home screen
+Go to Balance Sheet
+You can create new entries under the Liabilities and Assets section accordingly
+To add a Liability or Asset, tap on “ + Create New Entry”
+Select the Ledger category and enter the required details. For more details on ledger categories, watch the video attached.
+===
+How to create Automated Bills?
+You can now schedule bills to be created automatically every month or week 
+for regular product delivery or services using Automated Bills!
+To set up automated bills:
+Go to Grow tab through the bottom navigation bar
+Go to Automated Bills under the Accounting header
+Tap on the “+ New Automated Invoice” button
+Fill the schedule details like start date, end date, repeating frequency and due date for 1st invoice
+Add the invoice details as required
+Tap on Schedule Bill to create an automated invoice
+For more details on Automated Bills, watch the video provided!
+===
+How to create a Business Card?
+To create Business Cards to share with parties:
+Navigate to the Grow screen using the bottom-navigation bar
+Go to Business Card in the Business Efficiency section
+Select a suitable template, upload your logo and enter the business details 
+Share via WhatsApp using the icon on the top right
+===
+How to change the app language?
+To change the language of myBillBook application:
+Go to More screen through the bottom navigation bar
+Go to Account Settings
+Go to Language
+Select a language from English, Hindi, Hinglish, Gujarati, and Tamil! 
+===
+How to enable App Lock?
+Setting an app lock would require you to enter your mobile phone password 
+or fingerprint to open myBillBook.
+To set an app lock to prevent your staff from accessing myBillBook:
+Go to More screen through the bottom navigation bar
+Go to Account Settings
+Tap on the App lock toggle 
+===
+What are the best printers for your business?
+myBillBook supports multiple printers. Click here to know the best printers to 
+create invoices for your business!
+===
+How to use batching?
+Batching can help FMCG businesses maintain track of stock of the same 
+items with different expiry dates seamlessly!
+To enable batching:
+Go to the Items screen through the bottom navigation bar
+Tap on the settings icon on the top right
+Tap on Batching toggle
+To learn more about batching, watch the tutorial video attached!
+===
+How to use serialization?
+Serialization is used to maintain stock of item with unique serial numbers. 
+To enable serialization:
+Go to the Items screen through the bottom navigation bar
+Tap on the settings icon on the top right
+Tap on the Serial Number/IMEI toggle
+===
+How to enable low-stock alerts?
+To enable low-stock alerts for an item:
+1. Select the item from the Items Screen
+2. Tap on the Edit item icon on the top right
+3. Navigate to the Stock option and tap on the Low stock alert toggle
+4. On entering the low stock quantity, you will be alerted when the item quantity reaches that much value
+===
+How to generate a barcode for an item?
+To generate barcode of an item and display it in the invoice:
+1. Select the item from the Items Screen
+2. Tap on the Edit item icon on the top right
+3. Tap on the Item settings icon on the top right 4. Tap of the Barcode Scanner toggle
+===
+How to add HSN code and GST details?
+To add HSN code and GST details of an item:
+1. Select the item from the Items Screen
+2. Tap on the Edit item icon on the top right
+3. Tap on the “+ Add GST & Tax Details” button
+4. Enter the HSN code or select GST % manually from the drop-down list provided
+===
+How to add the model/color/size of an item? (Custom fields) 
+To add custom fields to an item:
+To add HSN code and GST details of an item:
+1. Select the item from the Items Screen
+2. Tap on the Edit item icon on the top right
+3. Navigate to the Other option and select the “Add Fields to Item” under Custom Fields
+4. You can add any fields that you would like (color, model, size, etc) to the item
+5. On adding the custom field, it would be visible in the Other Section where you can enter the value
+===				
+How to add the MRP of an item?
+To add MRP of an item and display it in the invoice:
+1. Select the item from the Items Screen
+2. Tap on Edit item icon on the top right
+3. Tap on item settings icon on the top right
+4. Go to Add/Remove Columns and Add MRP
+===
+How to add the wholesale price of an item?
+To add the Wholesale price of an item and display it in the invoice:
+1. Select the item from the Items Screen
+2. Tap on the Edit item icon on the top right
+3. Tap on the Item settings icon on the top right
+4. Enable the Wholesale Price toggle
+5. The Wholesale Price and Minimum quantity for item to sell at that price can be set in 
+   the Item Details screen
+===						
+How to add/edit units of an item?
+To change units of an item:
+1. Select the item from the Items Screen
+2. Tap on the Edit item icon on the top right
+3. Tap on Units
+4. The Primary Unit cannot be modified if the item has been added to an invoice or the stock has been added/removed. If this is the case, you can delete this item and create a new identical item.
+5. An alternative unit can also be added by tapping on “+ Alternate Unit” and selecting the respective unit and conversion
+===
+How to calculate the stock value by Sales/Purchase Price?
+To calculate the stock value by Sales/Purchase price:
+1. Tap on the Settings icon on the top-right of the items screen to open item settings
+2. Scroll down to the bottom to Other Options
+3. Under “Stock value calculation using”, choose Sales Price or Purchase Price
+===
+How to maintain inventory in multiple godowns/warehouses?
+To enable the godown/warehouse feature:
+1. Tap on the Settings icon on the top-right of the items screen to open item settings
+2. Tap on Godown/Warehouse and enable it
+3. Add multiple godowns by clicking on the “+ Add Godown” button at the bottom of the screen
+4. To add/reduce stock from a godown, tap on the item from the items screen and navigate to the Godown section
+5. Tap on adjust stock and add/reduce stock from the godown of your choice
+===
+How to add items from Purchase Bills?
+ To add items from Purchase Bills:
+1. Open the Items Screens through the bottom navigation bar
+2. Click on the bulk upload icon next to the “Create new item” button 3. Choose Photo/PDF of purchase bill
+4. Tap on Upload File and upload the copies of purchase bills
+5. The items will be added to myBillBook within 2-3 days
+
+===
+How to import items from Tally? 
+To import items from Tally:
+1. Open the Items Screens through the bottom navigation bar
+2. Click on the bulk upload icon next to the “Create new item” button 3. Select Tally
+4. Upload the master list by clicking on the Upload File button
+===
+		 	 	 								
+How to add items in bulk?
+To Add items in Bulk:
+1. Open the Items Screens through the bottom navigation bar
+2. Click on the bulk upload icon next to the “Create new item” button
+3. Click on “Excel(.xlsx) file” option
+4. Upload an Excel file containing the Item name, Sales price, purchase price, and any other details in any format
+5. The items will be added to your account upon uploading the Excel file
+=== 
+					
+				
+How to add IMEI and serial number details?
+
+
+To add IMEI and serial number(model number, part number, etc):
+1. Select the item from the Items Screen
+2. Tap on the Edit item icon on the top right
+3. Tap on the Item settings icon on the top right
+4. Enable Serial Number / IMEI option
+5. Tap on IMEI/Serial No button under the pricing header and enable serialisation for the item
+6. Tap on IMEI/Serial No option to add the IMEI/Serial No of the items either manually or by scanning barcode
+===
+
+					
+				
+			
+		
+
+How to add a Customer/Supplier?
+ To add a new party:
+1. Go to the Parties screen through the bottom navigation bar
+2. Tap on the “+ Create Party” button
+3. Choose party type of Customer or Supplier and fill in the other details 
+4. Save to create a new party!
+===							
+How to add different billing & shipping addresses? 
+To add a default Billing Address:
+1. Go to the More Screen through the bottom navigation bar
+2. Go to Business Address
+3. To auto-fill the address from your current location, click on Allow Location Access
+4. To enter the address manually, click on Cancel and fill all details as required
+To add Shipping Address:
+1. Tap on “Parties” in the bottom navigation screen
+2. Tap on “Create Party” and tap on Billing Address and add the Billing Address and Save
+3. On saving, there is a Shipping Address field which can be edited as required. This would be visible on the invoice
+===					
+How to add PAN and Aadhaar details of a party?
+To add PAN details:
+1. Go to the Parties screen through the bottom navigation bar
+2. Select the party
+3. Tap on the edit party icon on the top right of the screen
+4. Enter the PAN number in the field given under Business Info section
+===
+To add Aadhaar detail:
+1. Go to the Parties screen through the bottom navigation bar
+2. Select the party
+3. Tap on the edit party icon on the top right of the screen
+4. Tap on the Settings icon on the top-right
+5. Go to Add Fields to Party
+6. Click on “+ Add Custom Field” and name it as Aadhaar Number and save
+7. The Aadhaar Number field would be available in the Other Details section
+===
+How to set a credit period and limit for a party?
+To add the credit period and limit of a party:
+1. Go to the Parties screen through the bottom navigation bar
+2. Select the party
+3. Tap on the edit party icon on the top right of the screen
+4. Open the Credit Info section and enter the credit period and credit limit in the given fields
+5. The credit period is the duration of credit you would like to give for your customer/supplier’s invoice
+6. Credit limit is the limit of the credit amount for your customer/supplier
+=== 						
+How to add the opening balance details of a party?
+To add the opening balance of a party:
+1. Go to the Parties screen through the bottom navigation bar
+2. Select the party
+3. Tap on the edit party icon on the top right of the screen
+4. Open the Credit Info section and enter the opening balance value in the field given below
+5. Select “I receive” if the party owes you the amount and select “I pay” if you owe the amount to the party
+
+=== 					
+How to view & share party statements?
+To view and share party statement:
+1. Go to the Parties screen through the bottom navigation bar
+2. Select the party
+3. Tap on the Statement icon in red to generate the party statement
+4. This can be shared by Whatsapp or download the PDF using the icons on the top-right of the screen
+=== 
+How to record a received payment?
+To change the amount received in the invoice:
+1. Add the Party Name and Items to the invoice
+2. Tap on “+Amount Received” and enter the advance amount 
+3. The balance amount would be adjusted accordingly
+Note: This field would not be visible in Cash Sale bills
+===
+How to collect payment through UPI & display QR code on the invoice?
+To add UPI ID details of your business:
+1. On the dashboard, tap on Total Balance
+2. Click the “+ Add New Bank” button
+3. Add the bank details and click the Add Bank Account Details toggle 4. Fill in the details and UPI ID and save
+To display the UPI ID and QR code in the invoice:
+1. Add party and items as required
+2. After adding the item quantity, tap on Add more details
+3. Tap on “+ Amount Received” and add the amount
+4. Select Check or Online in the Payment mode and select the Bank Account
+The QR Code would be reflected in newly created invoices.
+===
+
+How to create a quotation?
+To create a quotation:
+1. Tap on the “+” icon at the bottom of the screen in the Dashboard
+2. Choose the Quotation/Estimate icon under the Sales Transactions section
+3. Enter the Party Name and Item details as desired
+4. After adding the item quantity, tap on Add more details to add additional details if required
+5. Save to create a quotation
+===
+How to create a purchase entry? (Purchase voucher)
+To create a purchase entry:
+1. Tap on the “+” icon at the bottom of the screen in the Dashboard
+2. Choose the Purchase option in the Purchase Transactions section
+3. Add the party
+4. Add item quantity and tap on the “EDIT” button to change the Price (optional)
+5. To add any additional details, tap on Add more details button on the left (optional)
+6. Save to create purchase entry!
+===
+How to create an expense entry? (Expense voucher)
+To create an expense:
+1. Tap on the “+” icon at the bottom of the screen in the Dashboard
+2. Choose the Expense option in the Other Transactions section
+3. To add an expense category, tap on the “Add Expense Category” button
+4. Create new expense categories by clicking on “+Create New Expense” (optional)
+5. To add an expense item, tap on the “Add item” button
+6. To change the expense date or expense number (serial number), tap on Edit at the top-right of the screen
+7. Save to record expense!
+===
+How to record payments? (Payment In & Payment Out)
+To record a payment collected from a party:
+1. Tap on the “+” icon at the bottom of the screen in the Dashboard
+2. Choose the Received Payment option in the Sales Transactions section
+3. Enter Party Name and amount details
+4. To add details regarding the payment, tap on “+Note” button
+5. To change the payment date or received payment number (serial number), tap on Edit at the top-right of the screen
+6. Save to record expense!
+
+
+To record a payment made to a party:
+1. Tap on the “+” icon at the bottom of the screen in the Dashboard
+2. Choose the Payment Out option in the Purchase Transactions section
+3. Enter Party Name and amount details
+4. To add details regarding the payment, tap on “+Note” button
+5. To change the payment date or payment out number (serial number), tap on Edit at the top-right of the screen
+6. Save to record expense!
+===
+
+How to add Multiple Bank Accounts?
+You can now Add, edit, and deactivate details of Multiple Bank Accounts on myBillBook!
+To Add a Bank Account:
+1. Click on the Total Balance button in the Dashboard
+2. Click on “+ Add New Bank”
+3. Add the Account Display Name, Opening Balance and Date
+4. To add additional bank account details, click on the Add bank account details toggle and fill in the details as required
+5. Click on Save and the Bank Account will be added
+===
+How to edit bank account details?
+You can now Add, edit, and deactivate details of Multiple Bank Accounts on myBillBook!
+To edit the details of a Bank Account:
+1. Click on the Total Balance button in the Dashboard
+2. Choose the Bank Account, the details of which have to be edited 
+3. Click on the Account Details button
+4. Click on More Options at the top-right of the screen
+5. Click on Update details
+6. Edit the details as required and Save
+===
+
+Multiple business & user
+How to add/delete business to your myBillBook account?
+To add a business to your myBillBook account:
+1. Go to the More screen through the bottom navigation bar
+2. Tap on the “Business & GST Settings” button at the top of the screen 3. Scroll down and tap on the “+ Add New Business” button
+For more details on plan pricing and number of businesses in an account, contact us at 7400417400
+===
+
+How to add/change staff roles and details?
+To add a new user:
+1. Go to the More screen through the bottom navigation bar 2. Go to Manage User
+3. Tap on the “+ Add New User” button
+4. Enter details and Save to create a user!
+To change staff role or details:
+1. Go to the More screen through the bottom navigation bar
+2. Go to Manage User
+3. Tap on the options button whose details you want to edit and tap on Edit 4. Make the changes required and Save!
+You can add Partner, Salesman, Stock Manager, Delivery Boy, Accountant/CA as a user on myBillBook!
+===
+
+
+
+
+
+
+
+
+
+
+
+
+Desktop
+If the customer is unable to edit the invoice?
+Check invoice sync status
+Check if any payment in/out created and is linked to that particular Invoice
+Delete the payment In/out then user can edit the said invoice
+===
+HSN not shown on the invoice?
+Check if the HSN added to item details
+Check the invoice theme
+===
+After creating invoice, details like item, party, invoice numbers, dates, logo, business name/address are not reflecting on the invoice?
+Please ask the user to update/ reinstall google chrome and Android System WebView
+How to update?
+Android System WebView
+https://play.google.com/store/apps/details?id=com.google.android.webview
+Remove and add logo, signature again.
+If the issue still persist, Remove the signature and logo and add it again then try to create the invoice
+If users issue does not get fixed with above steps then please ask user to check if he is facing this issue in other android phone or not.
+===
+User claims that he is getting incorrect stock value
+1 . Check Preset Stock Value calculation set to Purchase or Sales price (Item setting)
+NOTE - Stock value calculation will be shown without tax
+===
+User's party balance is showing wrong on the account
+Check Party Ledger & Calculate manually
+Check for Payment in/out vouchers if not linked to any invoices
+===
+While deleting expense it shows "Something went wrong/Invalid/error" in both offline and online application
+
+Clear cache,
+Relogin
+"For Online -
+Clear Browsing history
+Relogin
+Hard Refresh"
+===
+User wants to recover deleted items
+Usually we do not take requests for recovering deleted items, as the item properties change.
+===
+While creating Sales invoice, if there are 2 batches, only 1 batch is reflecting
+On the webapp, if the item has a batch which has Zero Qty, while adding items on the invoice, user gets an dropdown called "Show Batches" and the a new drop down called "Show all batches - Including out of stock"
+===
+Gettin an error "Rate limit exceed"
+L2 has to reset the OTP limit via Admin panel via the button "Reset OTP Limit"
+===
+Unable to print invoices properly on Regular Printer
+Ask for a sample invoice, theme & Paper size
+Check printer settings along with printer name and paper size selected
+Change scale to "FIT TO PAPER, DEFAULT or PRINTABLE AREA" under printer settings on Chrome/browser
+Even if the issue doesn't get resolved, please escalate the concern along with noting down the MAKE AND MODEL of the printer
+===
+Thermal printer not listed on the Mobile or Web/desktop app (BT/USB)
+Unplug/ Plug
+Check scale
+Check mobile version(to be on latest version)
+Even if the issue doesn't get resolved, please escalate the concern along with noting down the MAKE AND MODEL of the printer
+===
+Party - Payment Reminders - Not working
+Check the toggle switch under reminder settings
+Check Party's valid mobile number is mentioned
+Hard Refresh (Ctrl+Shift+R)
+Login & Logout
+Check updates Mobile
+Check if the Party has been saved at the MBBcustomers account
+===
+SMS are not delivered to parties
+Change the app language to english/hinglish and then try creating vouchers
+Check the reminder settings
+Check the party phone number
+===
+Thermal prints are not properly aligned
+Check that the user has the correct printer size selected in the app
+More > Invoice settings > Printer settings > Bluetooth thermal printer
+Check with both old and modern formats to see which one works properly
+Check that the printer prints the supported dimensions(2inch and 3inch).
+===
+Party balance is not showing in the invoices
+Invoice should be the latest sales invoice of that party
+Show party balance toggle should be enabled in invoice setting
+Should not be a cash sale voucher
+If the latest voucher for the party is a payment-in voucher, then to avoid confusion between the settled amount and the remaining balance, party balance is not shown in sales invoices created prior to it. The party balance can be inferred from the party detail or the party ledger report
+===
+User sees different prices on iOS native pricing page and other platforms' pricing pages for the same subscription tiers
+Because of high Apple's licensing fee results in the higher priced subscription tiers on iOS app.
+The user can still buy those same plans from other non-iOS platforms and then use iOS app.
+===
+Staff payable calculation seems off to the user
+For salary calculation, every month is considered to be 30 days long even if there are 28 or 31 days in the month. This is done by majority of businessmen.
+In a case, for a staff with monthly salary of 18500, if the admin has marked attendance for 21 days of Feb and is yet to mark for 7 more days, which are in the future, if staff was to receive salary for 'Feb' today, we count that as 7 days absence instead of suddenly changing the number after the last day of the month.
+Thus
+Per day amount 18500/30 = 616.66
+Absent days amount = 616.66 * 7 = 4316.62
+Thus, Salary for Feb to be paid on current day= 18500 - 4316.62 = 14183.34
+===
+iOS registered user approaches for refund
+If a user who purchased from apple is approaching for refund, confirm with the user that they have not raised a refund req with apple pay.
+If they have raised a refund req with apple, they will receive refund from apple pay. Nothing to be done from our side.
+If they have not raised a refund request with apple, then continue with the normal refund request handling procedure
+===
+Offcentered print in thermal printer
+Request the user to change his font style to Roboto and font size to default
+===
+In "Cash in Hand" current balance shows wrong
+1.Request the user to wait for 1 day/24 hours, next day his data will show correctly.
+===
+Getting Error on uploading JSON file
+There are certains validation checks for invoice number, which can be checked from the below https://www.indiafilings.com/learn/gst-invoice-format-rules/
+it can be checked in the GSTR1 sales excel file.
+if the invoices are failing those checks we should request the user to edit the invoice/items accordingly
+===
+User reports that the sum of taxable amount from (B2B+B2C) does not match with the taxable in the HSN section of the GSTR-1 report
+Make the customer understand that the B2B+B2C taxable amount is not supposed to always match with the HSN taxable amount
+An approximate formula of equating taxable amounts would be
+b2b + b2cl + b2cs + (debit notes) - (credit notes) - (sales return) - (items in invoices without HSN) = HSN
+===
