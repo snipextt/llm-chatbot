@@ -1,7 +1,10 @@
 mod cli;
-use futures_util::future::join_all;
+mod parser;
 
 use cli::parse_args;
+use futures_util::future::join_all;
+use parser::EmbeddingMessage;
+use parser::Parser;
 use rust_bert::pipelines::sentence_embeddings::{
     SentenceEmbeddingsBuilder, SentenceEmbeddingsModelType,
 };
@@ -10,13 +13,23 @@ use std::collections::HashMap;
 use std::error::Error;
 use std::fs;
 use std::io::BufReader;
+use std::io::Read;
 use std::path::PathBuf;
+use std::time::SystemTime;
 use std::time::UNIX_EPOCH;
-use tokio::task;
+use tokio::{spawn, task};
 
-pub struct Message {
-    embeddings: Vec<f32>,
-    raw: String,
+#[derive(Debug, Default, Clone)]
+enum MessageType {
+    #[default]
+    Message,
+    Close,
+}
+
+#[derive(Debug, Default, Clone)]
+pub struct Message<T> {
+    message_type: MessageType,
+    message: Option<T>,
 }
 
 #[tokio::main]
@@ -38,12 +51,13 @@ async fn main() -> Result<(), Box<dyn Error>> {
     }
     let index: HashMap<String, u64> =
         serde_json::from_reader(BufReader::new(fs::File::open(config.index)?))?;
-    let (tx, rx) = tokio::sync::mpsc::channel::<Message>(100);
-    let mut tasks = Vec::new();
+    let (tx, mut rx) = tokio::sync::mpsc::unbounded_channel::<Message<EmbeddingMessage>>();
+    let mut send_tasks = Vec::new();
+    let mut rcv_tasks = Vec::new();
     for file in dir {
-        let index = index.clone();
+        let mut index = index.clone();
         let tx = tx.clone();
-        tasks.push(task::spawn_blocking(move || {
+        send_tasks.push(task::spawn_blocking(move || {
             let path = file.unwrap().path();
             let model =
                 SentenceEmbeddingsBuilder::remote(SentenceEmbeddingsModelType::AllMiniLmL6V2)
@@ -51,38 +65,53 @@ async fn main() -> Result<(), Box<dyn Error>> {
                     .unwrap();
             let last_modified = get_last_modified(&path).unwrap();
             if last_modified > index.get(path.to_str().unwrap()).unwrap_or(&0).to_owned() {
-                let file = parse_file(path.to_str().unwrap()).unwrap();
-                let embeddings = model.encode(&file).unwrap();
-                for i in embeddings {
-                    tx.blocking_send(Message {
-                        embeddings: i.to_vec(),
-                        raw: "".to_string(),
+                let mut file = BufReader::new(fs::File::open(path.clone()).unwrap());
+                let mut input = String::new();
+                file.read_to_string(&mut input).unwrap();
+                let input: Vec<char> = input.chars().collect();
+                let parser = Parser::new(&model, input.as_slice(), 2048 * 4);
+                for embeddings in parser {
+                    tx.send(Message {
+                        message: Some(embeddings),
+                        ..Default::default()
                     })
                     .unwrap();
                 }
+                index.insert(
+                    path.to_str().unwrap().to_string(),
+                    SystemTime::now()
+                        .duration_since(UNIX_EPOCH)
+                        .expect("Is it running back?")
+                        .as_secs(),
+                );
             }
         }));
     }
-    join_all(tasks).await;
-    Ok(())
-}
-
-fn parse_file(path: &str) -> Result<Vec<String>, Box<dyn Error>> {
-    let content = fs::read_to_string(path)?;
-    Ok(content
-        .split("\n")
-        .filter_map(|v| {
-            let line = v
-                .trim_start_matches("\n")
-                .trim_end_matches("\n")
-                .to_string();
-            if line.is_empty() {
-                None
-            } else {
-                Some(line)
+    rcv_tasks.push(spawn(async move {
+        while let Some(msg) = rx.recv().await {
+            match msg.message_type {
+                MessageType::Close => rx.close(),
+                MessageType::Message => {
+                    sqlx::query("INSERT INTO documents (embedding, raw) VALUES ($1, $2)")
+                        .bind(msg.clone().message.unwrap().embeddings)
+                        .bind(msg.message.unwrap().raw)
+                        .execute(&pool)
+                        .await
+                        .unwrap();
+                }
             }
+        }
+    }));
+    rcv_tasks.push(spawn(async move {
+        join_all(send_tasks).await;
+        tx.send(Message {
+            message_type: MessageType::Close,
+            ..Default::default()
         })
-        .collect())
+        .unwrap();
+    }));
+    join_all(rcv_tasks).await;
+    Ok(())
 }
 
 fn get_last_modified(path: &PathBuf) -> Result<u64, Box<dyn Error>> {
