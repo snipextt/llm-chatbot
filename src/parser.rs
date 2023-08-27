@@ -7,28 +7,22 @@ pub struct EmbeddingMessage {
     pub raw: String,
 }
 
-pub struct Parser<'a> {
-    model: &'a SentenceEmbeddingsModel,
+pub struct Lexer<'a> {
     source: &'a [char],
     context_length: usize,
 }
 
-impl<'a> Parser<'a> {
-    pub fn new(
-        model: &'a SentenceEmbeddingsModel,
-        source: &'a [char],
-        context_length: usize,
-    ) -> Self {
-        Parser {
-            model,
+impl<'a> Lexer<'a> {
+    pub fn new(source: &'a [char], context_length: usize) -> Self {
+        Lexer {
             source,
             context_length,
         }
     }
 }
 
-impl<'a> Iterator for Parser<'a> {
-    type Item = EmbeddingMessage;
+impl<'a> Iterator for Lexer<'a> {
+    type Item = String;
 
     fn next(&mut self) -> Option<Self::Item> {
         let mut sl = String::new();
@@ -62,13 +56,6 @@ impl<'a> Iterator for Parser<'a> {
                 break;
             }
         }
-        Some(generate_embedding(sl, &self.model))
-    }
-}
-
-fn generate_embedding(source: String, model: &SentenceEmbeddingsModel) -> EmbeddingMessage {
-    EmbeddingMessage {
-        embeddings: model.encode(&[source.as_str()]).unwrap()[0].clone(),
-        raw: source,
+        Some(String::from(sl.trim_end_matches("\n")))
     }
 }
