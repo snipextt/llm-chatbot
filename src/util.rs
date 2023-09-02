@@ -16,30 +16,32 @@ use rust_bert::pipelines::sentence_embeddings::{
 use sqlx::{Pool, Postgres};
 use tokio::{
     spawn,
-    sync::mpsc::{UnboundedReceiver, UnboundedSender},
+    sync::{
+        mpsc::{UnboundedReceiver, UnboundedSender},
+        oneshot,
+    },
     task::{spawn_blocking, JoinHandle},
 };
 
-use crate::parser::EmbeddingMessage;
+use crate::lexer::EmbeddingMessage;
 
 pub fn parse_entry(
     file: DirEntry,
     tx: UnboundedSender<EmbeddingMessage>,
     index: Arc<Mutex<HashMap<String, u64>>>,
     task_list: &mut Vec<JoinHandle<()>>,
+    tx_m: UnboundedSender<EncodingRequest>,
 ) {
-    task_list.push(spawn_blocking(move || {
+    task_list.push(spawn(async move {
         let path = file.path();
-        let model = SentenceEmbeddingsBuilder::remote(SentenceEmbeddingsModelType::AllMiniLmL6V2)
-            .create_model()
-            .unwrap();
         let last_modified = get_last_modified(&path).unwrap();
         let to_read_file = {
             let guard = index.lock().unwrap();
             last_modified > guard.get(path.to_str().unwrap()).unwrap_or(&0).to_owned()
         };
         if to_read_file {
-            create_embeddings_from_file(&path)
+            create_embeddings_from_file(&path, tx_m)
+                .await
                 .iter()
                 .for_each(|embeddings| tx.send(embeddings.clone()).unwrap());
             {
@@ -50,10 +52,26 @@ pub fn parse_entry(
     }));
 }
 
-fn create_embeddings_from_file(path: &PathBuf) -> Vec<EmbeddingMessage> {
+async fn create_embeddings_from_file(
+    path: &PathBuf,
+    tx_m: UnboundedSender<EncodingRequest>,
+) -> Vec<EmbeddingMessage> {
     let input = read_chars_form_file(path);
-    let parsed_input = Lexer::new(input.as_slice(), 2048 * 4).collect();
-    Vec::new()
+    let parsed_input: Vec<String> = Lexer::new(input.as_slice(), 128 * 4).collect();
+    let (tx, rx) = oneshot::channel();
+    let _ = tx_m.send(EncodingRequest {
+        raw: parsed_input.clone(),
+        tx,
+    });
+    let embeddings = rx.await.unwrap();
+    embeddings
+        .iter()
+        .enumerate()
+        .map(|(i, embedding)| EmbeddingMessage {
+            embeddings: embedding.clone(),
+            raw: parsed_input[i].clone(),
+        })
+        .collect()
 }
 
 fn update_index(path: &PathBuf, index: &mut HashMap<String, u64>) {
@@ -91,7 +109,7 @@ pub async fn store_entries(mut rx: UnboundedReceiver<EmbeddingMessage>, pool: Po
 
 pub async fn store_data(
     pool: Pool<Postgres>,
-    tx: UnboundedSender<EncodingRequest>,
+    tx_m: UnboundedSender<EncodingRequest>,
 ) -> Result<(), Box<dyn Error>> {
     let config = parse_args();
     if fs::metadata(&config.index).is_err() {
@@ -103,9 +121,16 @@ pub async fn store_data(
     let (tx, rx) = tokio::sync::mpsc::unbounded_channel::<EmbeddingMessage>();
     let mut tasks = Vec::new();
     fs::read_dir(&config.path)?.for_each(|entry| {
-        parse_entry(entry.unwrap(), tx.clone(), index.clone(), &mut tasks);
+        parse_entry(
+            entry.unwrap(),
+            tx.clone(),
+            index.clone(),
+            &mut tasks,
+            tx_m.clone(),
+        );
     });
     drop(tx);
+    drop(tx_m);
     tasks.push(spawn(async move {
         store_entries(rx, pool).await;
     }));

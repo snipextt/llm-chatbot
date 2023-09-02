@@ -9,7 +9,7 @@ pub struct EmbeddingMessage {
 
 pub struct Lexer<'a> {
     source: &'a [char],
-    context_length: usize,
+    context_length: usize, // 128 * 4 -> where 4 is the number of chars per token
 }
 
 impl<'a> Lexer<'a> {
@@ -56,6 +56,6 @@ impl<'a> Iterator for Lexer<'a> {
                 break;
             }
         }
-        Some(String::from(sl.trim_end_matches("\n")))
+        Some(String::from(sl))
     }
 }
