@@ -1194,6 +1194,7 @@ dependencies = [
  "pdf-extract",
  "reqwest",
  "rust-bert",
+ "serde",
  "serde_json",
  "sqlx",
  "tokio",
