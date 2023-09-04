@@ -12,7 +12,7 @@ A chatbot written using [rust-bert](https://github.com/guillaume-be/rust-bert) a
 ### How to setup
 #### Required env variables
 ```bash
-epxort INDEX_PATH= # path to keep track of already indexed files
+export INDEX_PATH= # path to keep track of already indexed files
 export DATA_DIR= # path to a directory containing files to index
 export PG_URI= # postgres connection string
 export OPEN_AI_TOKEN= # openai api token
@@ -27,5 +27,5 @@ SET enable_seqscan = off;
 ```
 
 #### Setup libtorch for rustbert
-[Ref](https://github.com/guillaume-be/rust-bert#getting-started)\
+rust-bert [getting started](https://github.com/guillaume-be/rust-bert#getting-started)\
 Model for embedding - [AllMiniLmL6V2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)
