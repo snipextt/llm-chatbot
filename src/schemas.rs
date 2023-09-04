@@ -8,7 +8,7 @@ pub struct EncodingRequest {
 }
 
 #[derive(Debug, sqlx::FromRow, Clone, Default)]
-pub struct Document {
+pub struct DocumentRef {
     pub embedding: Vec<f32>,
     pub raw: String,
     pub relevence: Option<f32>,

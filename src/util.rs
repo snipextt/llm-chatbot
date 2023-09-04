@@ -1,4 +1,5 @@
-use crate::schemas::Document;
+use crate::schemas::DocumentRef;
+use poppler::PopplerDocument;
 use std::{
     collections::HashMap,
     error::Error,
@@ -26,7 +27,7 @@ use tokio::{
 
 pub fn parse_entry(
     file: DirEntry,
-    tx: UnboundedSender<Document>,
+    tx: UnboundedSender<DocumentRef>,
     index: Arc<Mutex<HashMap<String, u64>>>,
     task_list: &mut Vec<JoinHandle<()>>,
     tx_m: UnboundedSender<EncodingRequest>,
@@ -41,6 +42,7 @@ pub fn parse_entry(
         if to_read_file {
             create_embeddings_from_file(&path, tx_m)
                 .await
+                .unwrap()
                 .iter()
                 .for_each(|embeddings| tx.send(embeddings.clone()).unwrap());
             {
@@ -54,8 +56,22 @@ pub fn parse_entry(
 async fn create_embeddings_from_file(
     path: &PathBuf,
     tx_m: UnboundedSender<EncodingRequest>,
-) -> Vec<Document> {
-    let input = read_chars_form_file(path);
+) -> Result<Vec<DocumentRef>, Box<dyn Error>> {
+    if path.extension().is_none() {
+        eprintln!("Invalid file {path:?}");
+        return Ok(vec![]);
+    }
+    let input = match path.extension().unwrap().to_str().unwrap() {
+        "pdf" => read_chars_from_pdf(path)?,
+        "txt" | "md" => read_chars_form_text_file(path)?,
+        _ => {
+            eprintln!("Invalid file {path:?}");
+            vec![]
+        }
+    };
+    if input.len() == 0 {
+        return Ok(vec![]);
+    }
     let parsed_input: Vec<String> =
         TextSplitter::new(input.as_slice(), 512 * 4, Some("\n\n")).collect();
     let (tx, rx) = oneshot::channel();
@@ -64,17 +80,17 @@ async fn create_embeddings_from_file(
         tx,
     });
     let embeddings = rx.await.unwrap();
-    embeddings
+    Ok(embeddings
         .iter()
         .enumerate()
-        .map(|(i, embedding)| Document {
+        .map(|(i, embedding)| DocumentRef {
             embedding: embedding.clone(),
             raw: parsed_input[i].clone(),
             doc_ref: path.to_str().unwrap().to_string(),
             segment: i as i64,
             relevence: None,
         })
-        .collect()
+        .collect())
 }
 
 fn update_index(path: &PathBuf, index: &mut HashMap<String, u64>) {
@@ -87,11 +103,25 @@ fn update_index(path: &PathBuf, index: &mut HashMap<String, u64>) {
     );
 }
 
-fn read_chars_form_file(path: &PathBuf) -> Vec<char> {
-    let mut file = BufReader::new(fs::File::open(path.clone()).unwrap());
+fn read_chars_form_text_file(path: &PathBuf) -> Result<Vec<char>, Box<dyn Error>> {
+    let mut file = BufReader::new(fs::File::open(path.clone())?);
     let mut input = String::new();
-    file.read_to_string(&mut input).unwrap();
-    input.chars().collect()
+    file.read_to_string(&mut input)?;
+    Ok(input.chars().collect())
+}
+
+fn read_chars_from_pdf(path: &PathBuf) -> Result<Vec<char>, Box<dyn Error>> {
+    let doc = PopplerDocument::new_from_file(path, "")?;
+    let mut contents = Vec::new();
+    for i in 0..doc.get_n_pages() {
+        if let Some(page) = doc.get_page(i) {
+            if let Some(content) = page.get_text() {
+                let mut chars: Vec<char> = content.chars().collect();
+                contents.append(&mut chars);
+            }
+        };
+    }
+    Ok(contents)
 }
 
 fn get_last_modified(path: &PathBuf) -> Result<u64, Box<dyn Error>> {
@@ -99,7 +129,7 @@ fn get_last_modified(path: &PathBuf) -> Result<u64, Box<dyn Error>> {
     Ok(metadata.modified()?.duration_since(UNIX_EPOCH)?.as_secs())
 }
 
-pub async fn store_entries(mut rx: UnboundedReceiver<Document>, pool: Pool<Postgres>) {
+pub async fn store_entries(mut rx: UnboundedReceiver<DocumentRef>, pool: Pool<Postgres>) {
     while let Some(msg) = rx.recv().await {
         sqlx::query(
             "INSERT INTO documents (embedding, raw, doc_ref, segment) VALUES ($1, $2, $3, $4)",
@@ -125,7 +155,7 @@ pub async fn store_data(
     let index: Arc<Mutex<HashMap<String, u64>>> = Arc::new(Mutex::new(serde_json::from_reader(
         BufReader::new(fs::File::open(config.index.clone())?),
     )?));
-    let (tx, rx) = tokio::sync::mpsc::unbounded_channel::<Document>();
+    let (tx, rx) = tokio::sync::mpsc::unbounded_channel::<DocumentRef>();
     let mut tasks = Vec::new();
     fs::read_dir(&config.path)?.for_each(|entry| {
         parse_entry(
@@ -156,7 +186,7 @@ pub fn euclidean_distance(point1: &Vec<f32>, point2: &Vec<f32>) -> f32 {
         .powf(0.5)
 }
 
-pub fn sort_embeddings(embeddings: Vec<Document>) -> Vec<String> {
+pub fn sort_embeddings(embeddings: Vec<DocumentRef>) -> Vec<String> {
     let mut documents = Vec::new();
     for doc in embeddings {
         documents.push(doc.clone());

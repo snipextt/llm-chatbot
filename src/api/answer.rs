@@ -6,7 +6,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::{
     completion::Completion,
-    schemas::{AppState, Document, EncodingRequest},
+    schemas::{AppState, DocumentRef, EncodingRequest},
     util::sort_embeddings,
 };
 
@@ -24,8 +24,8 @@ pub async fn answer_handler(
         raw: vec![query.question.clone()],
         tx,
     });
-    let embeddings = rx.await.unwrap()[0].clone();
-    let embeddings = sqlx::query_as::<_, Document>(
+    let embeddings = rx.await.map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?[0].clone();
+    let embeddings = sqlx::query_as::<_, DocumentRef>(
         "SELECT *, embedding <-> $1 as relevence FROM documents ORDER BY embedding <-> $1 LIMIT 6",
     )
     .bind(&embeddings)
