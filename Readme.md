@@ -4,8 +4,9 @@ A chatbot written using [rust-bert](https://github.com/guillaume-be/rust-bert) a
 ## Checklist
 - [x] Knowledge graph from plain text using [pg_embeddings](https://neon.tech/blog/pg-embedding-extension-for-vector-search)
 - [x] Pdf to text to Knowledge graph
-- [ ] Websocket interface & CLI
-- [ ] Session history
+- [x] CLI
+- [ ] Websocket interface 
+- [x] Session history
 - [x] Audio to text to Knowledge graph
 
 ### How to setup

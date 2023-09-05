@@ -6,8 +6,8 @@ use serde::{Deserialize, Serialize};
 
 use crate::{
     completion::Completion,
-    schemas::{AppState, DocumentRef, EncodingRequest},
-    util::sort_embeddings,
+    schemas::{AppState, DocumentRef},
+    util::{generate_embedding_for_text, sort_embeddings},
 };
 
 #[derive(Serialize, Deserialize)]
@@ -19,12 +19,9 @@ pub async fn answer_handler(
     query: Query<Question>,
     State(state): State<AppState>,
 ) -> Result<String, StatusCode> {
-    let (tx, rx) = tokio::sync::oneshot::channel();
-    let _ = state.tx.send(EncodingRequest {
-        raw: vec![query.question.clone()],
-        tx,
-    });
-    let embeddings = rx.await.map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?[0].clone();
+    let embeddings = generate_embedding_for_text(state.tx, query.question.clone())
+        .await
+        .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?;
     let embeddings = sqlx::query_as::<_, DocumentRef>(
         "SELECT *, embedding <-> $1 as relevence FROM documents ORDER BY embedding <-> $1 LIMIT 6",
     )

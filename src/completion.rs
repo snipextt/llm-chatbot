@@ -41,8 +41,6 @@ impl<'a> Completion<'a> {
                 content: self.context.clone(),
             },
         ];
-
-        println!("{context}", context = self.context);
         for message in self.history.clone() {
             messages.push(message.to_owned());
         }

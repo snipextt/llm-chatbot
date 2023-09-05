@@ -1,4 +1,4 @@
-use crate::schemas::DocumentRef;
+use crate::{cli::Config, schemas::DocumentRef};
 use poppler::PopplerDocument;
 use reqwest::{multipart, Client};
 use serde_json::Value;
@@ -179,8 +179,8 @@ pub async fn store_entries(mut rx: UnboundedReceiver<DocumentRef>, pool: Pool<Po
 pub async fn store_data(
     pool: Pool<Postgres>,
     tx_m: UnboundedSender<EncodingRequest>,
+    config: &Config,
 ) -> Result<(), Box<dyn Error>> {
-    let config = parse_args();
     if fs::metadata(&config.index).is_err() {
         fs::File::create(&config.index)?;
     }
@@ -204,7 +204,10 @@ pub async fn store_data(
         store_entries(rx, pool).await;
     }));
     join_all(tasks).await;
-    serde_json::to_writer(BufWriter::new(fs::File::create(config.index)?), &index)?;
+    serde_json::to_writer(
+        BufWriter::new(fs::File::create(config.index.clone())?),
+        &index,
+    )?;
 
     Ok(())
 }
@@ -244,4 +247,16 @@ pub fn spawn_embedding_model(mut rx: UnboundedReceiver<EncodingRequest>) {
             let _ = msg.tx.send(embeddings);
         }
     });
+}
+
+pub async fn generate_embedding_for_text(
+    sender: UnboundedSender<EncodingRequest>,
+    prompt: String,
+) -> Result<Vec<f32>, Box<dyn Error>> {
+    let (tx, rx) = tokio::sync::oneshot::channel();
+    let _ = sender.send(EncodingRequest {
+        raw: vec![prompt],
+        tx,
+    });
+    Ok(rx.await?[0].clone())
 }
