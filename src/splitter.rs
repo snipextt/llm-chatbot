@@ -18,10 +18,13 @@ impl<'a> Iterator for TextSplitter<'a> {
     type Item = String;
 
     fn next(&mut self) -> Option<Self::Item> {
+        if self.source.len() == 0 {
+            return None;
+        }
         let mut sl = String::new();
         loop {
             if self.source.len() == 0 {
-                return None;
+                break;
             }
             sl.push(self.source[0]);
             self.source = &self.source[1..];

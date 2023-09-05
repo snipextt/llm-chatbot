@@ -34,7 +34,7 @@ pub enum OpenAiCompletionRole {
 }
 
 #[derive(Serialize, Deserialize)]
-pub enum OpenAiCompletionModel {
+pub enum OpenAIModel {
     #[serde(rename = "gpt-3.5-turbo")]
     GPT35TURBO,
 }
@@ -47,6 +47,6 @@ pub struct OpenAiCompletionMessage {
 
 #[derive(Serialize)]
 pub struct OpenAiCompletionRequest {
-    pub model: OpenAiCompletionModel,
+    pub model: OpenAIModel,
     pub messages: Vec<OpenAiCompletionMessage>,
 }

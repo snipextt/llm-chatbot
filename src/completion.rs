@@ -3,7 +3,7 @@ use std::error::Error;
 use serde_json::{from_value, Value};
 
 use crate::schemas::{
-    OpenAiCompletionMessage, OpenAiCompletionModel, OpenAiCompletionRequest, OpenAiCompletionRole,
+    OpenAIModel, OpenAiCompletionMessage, OpenAiCompletionRequest, OpenAiCompletionRole,
 };
 
 pub struct Completion<'a> {
@@ -65,7 +65,7 @@ impl<'a> Completion<'a> {
             .post(OPEN_AI_URI)
             .header("Authorization", format!("Bearer {token}"))
             .json(&OpenAiCompletionRequest {
-                model: OpenAiCompletionModel::GPT35TURBO,
+                model: OpenAIModel::GPT35TURBO,
                 messages,
             })
             .send()

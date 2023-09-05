@@ -1,5 +1,7 @@
 use crate::schemas::DocumentRef;
 use poppler::PopplerDocument;
+use reqwest::{multipart, Client};
+use serde_json::Value;
 use std::{
     collections::HashMap,
     error::Error,
@@ -64,6 +66,7 @@ async fn create_embeddings_from_file(
     let input = match path.extension().unwrap().to_str().unwrap() {
         "pdf" => read_chars_from_pdf(path)?,
         "txt" | "md" => read_chars_form_text_file(path)?,
+        "wav" | "mp3" | "mp4" | "aac" => read_chars_from_audio(path).await?,
         _ => {
             eprintln!("Invalid file {path:?}");
             vec![]
@@ -122,6 +125,35 @@ fn read_chars_from_pdf(path: &PathBuf) -> Result<Vec<char>, Box<dyn Error>> {
         };
     }
     Ok(contents)
+}
+
+async fn read_chars_from_audio(path: &PathBuf) -> Result<Vec<char>, Box<dyn Error>> {
+    // TODO: Look for an local alterntive
+    const TRANSCRIPTION_URI: &str = "https://api.openai.com/v1/audio/transcriptions";
+    let token = std::env::var("OPEN_AI_TOKEN").unwrap();
+    let bytes = fs::read(path)?;
+    let file_name = path
+        .file_name()
+        .and_then(|f| f.to_str())
+        .unwrap()
+        .to_string();
+    let part = multipart::Part::bytes(bytes).file_name(file_name);
+    let form = multipart::Form::new()
+        .text("model", "whisper-1")
+        .part("file", part);
+    let transciption: Value = Client::new()
+        .post(TRANSCRIPTION_URI)
+        .header("Authorization", format!("Bearer {token}"))
+        .multipart(form)
+        .send()
+        .await?
+        .json()
+        .await?;
+    let content = transciption
+        .get("text")
+        .and_then(|v| v.as_str())
+        .unwrap_or("");
+    Ok(content.chars().collect())
 }
 
 fn get_last_modified(path: &PathBuf) -> Result<u64, Box<dyn Error>> {

@@ -6,8 +6,7 @@ A chatbot written using [rust-bert](https://github.com/guillaume-be/rust-bert) a
 - [x] Pdf to text to Knowledge graph
 - [ ] Websocket interface & CLI
 - [ ] Session history
-- [ ] Semantinc search against queries in memory
-- [ ] Audio to text to Knowledge graph
+- [x] Audio to text to Knowledge graph
 
 ### How to setup
 #### Required env variables
