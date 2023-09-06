@@ -7,7 +7,7 @@ A chatbot written using [rust-bert](https://github.com/guillaume-be/rust-bert) a
 - [x] Audio to text to Knowledge graph
 - [x] Chat history
 - [x] CLI
-- [ ] Websocket interface 
+- [x] Websocket interface 
 - [ ] Refactor utils 
 
 ### How to setup

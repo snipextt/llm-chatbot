@@ -22,19 +22,18 @@ pub async fn answer_handler(
     let embeddings = generate_embedding_for_text(state.tx, query.question.clone())
         .await
         .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?;
-    let embeddings = sqlx::query_as::<_, DocumentRef>(
-        "SELECT *, embedding <-> $1 as relevence FROM documents ORDER BY embedding <-> $1 LIMIT 6",
+    let segments = sqlx::query_as::<_, DocumentRef>(
+        "SELECT *, embedding <-> $1 as relevence FROM documents ORDER BY relevence LIMIT 4",
     )
     .bind(&embeddings)
     .fetch_all(&state.pool)
     .await
     .unwrap();
-    let embeddings = sort_embeddings(embeddings);
-    let completion = Completion::new(embeddings.join("\n"), &state.req_client, vec![]);
+    let segments = sort_embeddings(segments);
+    let completion = Completion::new(segments.join("\n"), &state.req_client, vec![]);
     let answer = completion
         .generate(query.question.clone())
         .await
         .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?;
-
     Ok(answer.content)
 }

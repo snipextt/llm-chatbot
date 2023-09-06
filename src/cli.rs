@@ -14,8 +14,8 @@ use crate::{
 
 #[derive(Debug, Default, PartialEq)]
 pub enum Mode {
-    #[default]
     Offline,
+    #[default]
     Online,
 }
 
@@ -39,26 +39,24 @@ pub fn parse_args() -> Config {
         } else if key == "--index-path" {
             config.index = value.to_string();
         } else if key == "--mode" {
-            if value == "online" {
-                config.mode = Mode::Online;
+            if value == "offline" {
+                config.mode = Mode::Offline;
             }
         }
     });
-    if config.mode == Mode::Offline {
-        if config.path.is_empty() {
-            if !path_from_env.is_empty() {
-                config.path = path_from_env;
-            } else {
-                panic!("--data-dir is required or set PATH in env");
-            }
+    if config.path.is_empty() {
+        if !path_from_env.is_empty() {
+            config.path = path_from_env;
+        } else {
+            panic!("--data-dir is required or set PATH in env");
         }
+    }
 
-        if config.index.is_empty() {
-            if !index_path.is_empty() {
-                config.index = index_path;
-            } else {
-                panic!("--index-path is required or set INDEX_PATH in env");
-            }
+    if config.index.is_empty() {
+        if !index_path.is_empty() {
+            config.index = index_path;
+        } else {
+            panic!("--index-path is required or set INDEX_PATH in env");
         }
     }
 
@@ -82,15 +80,15 @@ pub async fn start_repl(
         let embeddings = generate_embedding_for_text(tx.clone(), prompt.clone())
             .await
             .expect("Something went wrong! Unable to generate embeddings.");
-        let embeddings = sqlx::query_as::<_, DocumentRef>(
-        "SELECT *, embedding <-> $1 as relevence FROM documents ORDER BY embedding <-> $1 LIMIT 6",
-    )
-    .bind(&embeddings)
-    .fetch_all(&pool)
-    .await
-    .unwrap();
-        let embeddings = sort_embeddings(embeddings);
-        let completion = Completion::new(embeddings.join("\n"), &req_client, history.clone());
+        let segments = sqlx::query_as::<_, DocumentRef>(
+            "SELECT *, embedding <-> $1 as relevence FROM documents ORDER BY relevence LIMIT 4",
+        )
+        .bind(&embeddings)
+        .fetch_all(&pool)
+        .await
+        .unwrap();
+        let segments = sort_embeddings(segments);
+        let completion = Completion::new(segments.join("\n"), &req_client, history.clone());
         let answer = completion
             .generate(prompt.clone())
             .await

@@ -17,6 +17,6 @@ sqlx = { version = "0.7", features = [
   "postgres",
 ] }
 futures-util = "0.3"
-axum = "0.6"
+axum = { version = "0.6", features = ["ws"] }
 serde = "1.0"
 poppler = "0.3.2"

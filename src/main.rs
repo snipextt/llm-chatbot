@@ -1,6 +1,6 @@
-mod api;
 mod cli;
 mod completion;
+mod routes;
 mod schemas;
 mod splitter;
 mod util;
@@ -18,7 +18,7 @@ use sqlx::postgres::PgPoolOptions;
 
 use util::store_data;
 
-use crate::api::answer::answer_handler;
+use crate::routes::{answer::answer_handler, ws::ws_handler};
 use crate::schemas::AppState;
 
 #[tokio::main]
@@ -46,6 +46,7 @@ async fn main() {
         Mode::Online => {
             let app = Router::new()
                 .route("/answer", get(answer_handler))
+                .route("/ws", get(ws_handler))
                 .with_state(state);
 
             let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
